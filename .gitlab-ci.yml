@@ -1,0 +1,7 @@
+image: node:latest
+
+job:
+  script:
+  - npx create-docusaurus@latest my-website classic
+  - cd my-website
+  - npx docusaurus start
