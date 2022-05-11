@@ -24,15 +24,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late WebViewController wvController;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('webview'),
       ),
-      body: const WebView(
-        initialUrl: 'http://httpforever.com/',
+      body: WebView(
+        initialUrl: 'https://flutter.dev/',
         javascriptMode: JavascriptMode.unrestricted,
+        onWebViewCreated: (wvController) {
+          this.wvController = wvController;
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          wvController.loadUrl('https://google.com/');
+        },
       ),
     );
   }
