@@ -10,7 +10,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: HomePage(),
     );
   }
@@ -28,9 +28,14 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('webview'),
+        title: const Text('webview'),
       ),
-      body: WebView(),
+      body: const WebView(
+        initialUrl: 'http://httpforever.com/',
+        javascriptMode: JavascriptMode.unrestricted,
+      ),
     );
   }
 }
+
+
