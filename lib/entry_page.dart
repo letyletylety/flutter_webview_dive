@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_dive/main.dart';
 
-final pageLabel = {
-  '/': 'Entry',
-  '/home': 'Home',
-  '/javascript': 'Javascript',
-  '/naver': 'Naver',
-};
 
 class EntryPage extends StatelessWidget {
   const EntryPage({Key? key}) : super(key: key);

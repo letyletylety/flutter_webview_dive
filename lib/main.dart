@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_dive/home_page.dart';
+import 'package:flutter_webview_dive/local_page.dart';
 import 'package:flutter_webview_dive/naver_page.dart';
 
 import 'entry_page.dart';
@@ -14,6 +15,15 @@ final appRoute = {
   '/home': (context) => const HomePage(),
   '/javascript': (context) => const JSPage(),
   '/naver': (context) => const JSPage(),
+  '/local': (context) => const LocalWebViewPage(),
+};
+
+final pageLabel = {
+  '/': 'Entry',
+  '/home': 'Home',
+  '/javascript': 'Javascript',
+  '/naver': 'Naver',
+  '/local': 'Local',
 };
 
 class App extends StatelessWidget {
@@ -32,6 +42,8 @@ class App extends StatelessWidget {
             return FPageBuilder(dest: const JSPage());
           case '/naver':
             return FPageBuilder(dest: const NaverPage());
+          case '/local':
+            return FPageBuilder(dest: const LocalWebViewPage());
           default:
             return FPageBuilder(dest: const EntryPage());
         }
