@@ -1,10 +1,11 @@
 # flutter's webview DIVE
 
-```yaml
-webview_flutter: ^3.0.2
-```
+플러터 웹 뷰에 대해서 총 정리 했습니다.
 
-말도 많고 탈도 많은 플러터의 웹 뷰지만 결국은 써야 할 일이 있을 것이다.
+사용 웹 뷰 버전
+```yaml
+webview_flutter: ^3.0.4
+```
 
 ---
 <br>
@@ -20,11 +21,13 @@ webview_flutter: ^3.0.2
 [4. onPageStarted - 새로운 페이지가 열렸을 때 감지](markdowns/4.md)
 
 **[5. javascript](markdowns/5.md)**
-- [naver](markdowns/5+.md)
+- [naver 로그인](markdowns/5+.md)
 <br>
+
+**[6. local webview](markdowns/6.md)**
 
 ---
 
 ### 기타 꿑팁들 (추가 예정)
 
-sdk의 범위를 벗어나는 것들에 대한 설명 (결제 모듈 붙이기, 지도 등등)
+flutter sdk의 범위를 벗어나는 것들에 대한 설명 (결제 모듈 붙이기, 지도 등등)
