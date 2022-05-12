@@ -1,39 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter_webview_dive/home_page.dart';
+import 'package:flutter_webview_dive/naver_page.dart';
+
+import 'entry_page.dart';
+import 'js_page.dart';
 
 void main() {
   runApp(const App());
 }
+
+final appRoute = {
+  '/': (context) => const EntryPage(),
+  '/home': (context) => const HomePage(),
+  '/javascript': (context) => const JSPage(),
+  '/naver': (context) => const JSPage(),
+};
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
+    return MaterialApp(
+      // home: HomePage(),
+      // routes: appRoute,
+      onGenerateRoute: (RouteSettings settings) {
+        switch (settings.name) {
+          case '/home':
+            return FPageBuilder(dest: const HomePage());
+          case '/javascript':
+            return FPageBuilder(dest: const JSPage());
+          case '/naver':
+            return FPageBuilder(dest: const NaverPage());
+          default:
+            return FPageBuilder(dest: const EntryPage());
+        }
+      },
     );
   }
 }
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('webview'),
-      ),
-      body: const WebView(
-        initialUrl: 'http://httpforever.com/',
-        javascriptMode: JavascriptMode.unrestricted,
-      ),
-    );
-  }
+class FPageBuilder extends PageRouteBuilder {
+  FPageBuilder({
+    required Widget dest,
+  }) : super(
+          pageBuilder: (_, __, ___) => dest,
+          transitionsBuilder: (_, a, __, child) =>
+              FadeTransition(opacity: a, child: child),
+        );
 }
